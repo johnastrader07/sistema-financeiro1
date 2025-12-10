@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="Style.css">
+
+<style>
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.login-box{
+  width:350px;
+  background:#15151a;
+  padding:25px;
+  border-radius:10px;
+  border:1px solid #222;
+  text-align:center;
+}
+.login-box h2{
+  color:var(--purple);
+  margin-bottom:20px;
+}
+.login-box input{
+  width:100%;
+}
+.login-box button{
+  width:100%;
+  margin-top:10px;
+}
+.link{
+  margin-top:12px;
+  display:block;
+  color:var(--purple);
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Entrar</h2>
+
+  <input type="text" id="login_user" placeholder="Usuário">
+  <input type="password" id="login_pass" placeholder="Senha">
+
+  <button onclick="logar()">Entrar</button>
+
+  <span class="link" onclick="window.location.href='register.html'">
+    Criar conta
+  </span>
+
+  <div id="alert" class="alert"></div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

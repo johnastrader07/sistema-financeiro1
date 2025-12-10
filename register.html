@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Criar Conta</title>
+
+<style>
+  body{
+    background:#0d0d0f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+  }
+  .box{
+    width:320px;
+    background:#15151a;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #222;
+    text-align:center;
+    color:white;
+  }
+  input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    background:#222;
+    border:1px solid #333;
+    border-radius:6px;
+    color:white;
+  }
+  button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#6b2fde;
+    color:white;
+    border-radius:6px;
+    margin-top:5px;
+    cursor:pointer;
+  }
+  button:hover{
+    background:#9b5cf7;
+  }
+  .link{
+    margin-top:10px;
+    color:#9b5cf7;
+    cursor:pointer;
+    display:block;
+  }
+  #msg{
+    margin-top:10px;
+    color:#ff4b4b;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="box">
+  <h2>Criar Conta</h2>
+
+  <input type="text" id="reg_user" placeholder="Usuário">
+  <input type="password" id="reg_pass" placeholder="Senha">
+  <input type="password" id="reg_pass2" placeholder="Confirmar Senha">
+
+  <button onclick="registrar()">Cadastrar</button>
+
+  <span class="link" onclick="window.location.href='login.html'">
+    Já tenho conta
+  </span>
+
+  <div id="msg"></div>
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>

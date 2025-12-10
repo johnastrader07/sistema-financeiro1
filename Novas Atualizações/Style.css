@@ -1,0 +1,204 @@
+:root{
+  /* Variáveis globais de cores e estilos */
+  --bg:#0d0d0f;          /* fundo da página inteira */
+  --card:#15151a;         /* fundo dos cards do dashboard */
+  --purple:#9b5cf7;       /* cor principal (ex.: títulos, destaques) */
+  --purple-dark:#6b2fde;  /* cor de hover e botões ativos */
+  --text:#e4e4e9;         /* cor padrão do texto */
+  --error:#ff4b4b;        /* cor de alerta de erro */
+  --success:#3ddc97;      /* cor de alerta de sucesso */
+  --border:#222;          /* cor padrão das bordas */
+}
+
+body{
+  margin:0;               /* remove margens padrão */
+  display:flex;           /* divide a tela em menu + conteúdo */
+  height:100vh;           /* altura total da tela */
+  background:var(--bg);   /* aplica a cor de fundo */
+  font-family:Arial,sans-serif; /* fonte padrão */
+  color:var(--text);      /* cor do texto */
+}
+
+/* Menu lateral (formulário de lançamento de transações) */
+.menu{
+  width:260px;            /* largura do menu lateral */
+  background:#111;        /* cor de fundo do menu */
+  padding:20px;           /* espaço interno da caixa */
+  border-right:1px solid var(--border); /* borda direita do menu */
+}
+
+h3{
+  margin-top:0;           /* remove espaçamento superior */
+  color:var(--purple);    /* cor do título do menu */
+  font-size:18px;         /* tamanho da fonte do título */
+}
+
+input,select{
+  width:100%;             /* largura do campo de entrada */
+  padding:8px;            /* altura da caixa do campo */
+  margin:6px 0 12px;      /* espaçamento externo (topo, lateral, inferior) */
+  border-radius:6px;      /* cantos arredondados do campo */
+  background:#222;        /* fundo do campo */
+  border:1px solid #333;  /* borda do campo */
+  color:var(--text);      /* cor do texto do campo */
+  font-size:14px;         /* tamanho da fonte dentro do campo */
+}
+
+/* Botões gerais (Salvar, Exportar, Importar) */
+button{
+  width:100%;             /* largura do botão */
+  padding:10px;           /* altura da caixa do botão */
+  background:var(--purple-dark); /* fundo do botão */
+  border:none;            /* sem borda padrão */
+  color:rgb(255, 255, 255);            /* cor do texto do botão */
+  border-radius:6px;      /* cantos arredondados */
+  font-weight:bold;       /* fonte em negrito */
+  cursor:pointer;         /* cursor pointer ao passar mouse */
+  font-size:14px;         /* tamanho da fonte do botão */
+  transition:0.2s;        /* transição suave ao hover */
+}
+button:hover{
+  background:var(--purple); /* muda a cor do botão ao passar mouse */
+}
+
+/* Alertas de erro ou sucesso */
+.alert{
+  padding:10px;           /* altura da caixa do alerta */
+  margin-top:10px;        /* espaçamento acima do alerta */
+  border-radius:6px;      /* cantos arredondados */
+  display:none;           /* inicialmente escondido */
+  text-align:center;      /* centraliza o texto */
+  font-size:14px;         /* tamanho da fonte da mensagem */
+}
+.error{
+  background:#99666633;   /* fundo semitransparente vermelho */
+  color:var(--error);     /* cor do texto de erro */
+}
+.success{
+  background:#3ddc9733;   /* fundo semitransparente verde */
+  color:var(--success);   /* cor do texto de sucesso */
+}
+
+/* Área principal do conteúdo (dashboard e tabela) */
+.content{
+  flex:1;                 /* ocupa o restante da tela ao lado do menu */
+  padding:20px;           /* espaço interno do conteúdo */
+  overflow-y:auto;        /* permite rolagem vertical */
+}
+
+/* Filtros de mês e ano */
+.filtros{
+  display:flex;           /* coloca os filtros lado a lado */
+  gap:15px;               /* espaço entre os filtros */
+  margin-bottom:20px;     /* distância do conteúdo abaixo */
+}
+
+/* Dashboard - cards com valores de receita, despesa, saldo, etc */
+.cards{
+  display:flex;           /* organiza os cards em linha */
+  gap:15px;               /* espaço entre os cards */
+  margin-bottom:25px;     /* distância do conteúdo abaixo */
+  flex-wrap:wrap;         /* permite quebrar linha se não couber */
+}
+.card{
+  flex:1;                 /* cada card ocupa tamanho proporcional */
+  padding:20px;           /* altura da caixa do card */
+  background:var(--card); /* cor de fundo do card */
+  border-radius:10px;     /* cantos arredondados */
+  text-align:center;      /* centraliza o conteúdo do card */
+  border:1px solid #232323; /* borda do card */
+  font-size:14px;         /* tamanho da fonte do card */
+}
+.card b{
+  font-size:22px;         /* tamanho da fonte do valor */
+  color:var(--purple);    /* cor do valor */
+}
+
+/* Tabela de movimentações */
+table{
+  width:100%;             /* largura total da tabela */
+  border-collapse:collapse; /* remove espaçamento entre células */
+  margin-top:10px;        /* distância do conteúdo acima */
+  font-size:14px;         /* tamanho da fonte da tabela */
+}
+th,td{
+  padding:10px;           /* altura da célula */
+  border-bottom:1px solid #222; /* borda inferior das células */
+  text-align:left;        /* alinha o texto à esquerda */
+}
+th{
+  background:#16161c;     /* cor do cabeçalho da tabela */
+}
+
+/* Botões de ação na tabela (Editar / Excluir) */
+.btn-acao{
+  padding:5px 10px;       /* altura e largura da caixa do botão */
+  font-size:12px;         /* tamanho da fonte */
+  border-radius:6px;      /* cantos arredondados */
+  cursor:pointer;         /* cursor pointer */
+  border:none;            /* sem borda */
+  margin-right:6px;       /* distância entre botões */
+}
+.edit{background:#6b2fdeaa;color:white}    /* botão Editar */
+.delete{background:#ff4b4baa;color:white}  /* botão Excluir */
+
+/* Relógio */
+#relogio{
+  position:absolute;      /* posicionamento absoluto */
+  top:6px;               /* distância do topo */
+  right:20px;             /* distância da direita */
+  font-weight:bold;       /* fonte em negrito */
+  color:var(--purple);    /* cor da fonte */
+  font-size:16px;         /* tamanho da fonte */
+  z-index:1000;           /* sobreposição sobre outros elementos */
+}
+
+/* Logo / marca */
+#marca{
+  position:fixed;         /* fixo na tela ao rolar */
+  bottom:10px;            /* distância inferior */
+  left:10px;              /* distância da esquerda */
+  z-index:9999;           /* sobreposição */
+}
+#marca img{
+  height:50px;            /* altura da imagem */
+  width:auto;             /* largura proporcional */
+}
+
+/* Botões gerais */
+.botoes button {
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Botão Salvar */
+.botao-salvar {
+  margin-right: 10px;
+}
+
+/* Botão Exportar — largura, altura e fonte ajustadas */
+.botao-exportar {
+  width: 120px;       /* largura da caixa */
+  padding: 10px;      /* altura da caixa */
+  font-size: 14px;    /* tamanho da fonte */
+  margin-top: 10px;   /* distância do conteúdo acima */
+}
+/* Botão Importar */
+.botao-importar {
+  width: 120px;       /* largura da caixa do botão */
+  padding: 8px;       /* altura da caixa */
+  font-size: 13px;    /* tamanho da fonte */
+  margin-left: 10px;  /* espaço entre exportar e importar */
+  background: var(--purple-dark); /* mesma cor que exportar */
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-importar:hover {
+  background: var(--purple); /* efeito hover igual aos outros */
+}

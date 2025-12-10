@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Financeiro</title>
+
+<link rel="icon" type="image/x-icon" href="Favicon2.ico">
+<link rel="stylesheet" href="Style.css">
+
+</head>
+<body>
+
+<!-- RELÓGIO -->
+<div id="relogio"></div>
+
+<!-- MENU -->
+<div class="menu">
+  <h3>Menu</h3>
+
+  <input type="date" id="inputData">
+  <input type="text" id="descricao" placeholder="Descrição">
+
+  <select id="tipo">
+    <option value="receita">Receita</option>
+    <option value="despesa">Despesa</option>
+    <option value="guardado">Guardado</option>
+    <option value="divida">Dívida</option>
+    <option value="pagamento divida">Pagamento Dívida</option>
+  </select>
+
+  <input type="number" id="valor" placeholder="Valor">
+
+  <div class="botoes">
+    <button onclick="logout()">Sair</button>
+    <button class="botao-salvar">Salvar</button>
+    <button class="botao-exportar">Exportar</button>
+    <button class="botao-importar">Importar</button>
+  </div>
+
+  <div id="alert" class="alert"></div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="content">
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <select id="filtroMes" onchange="atualizarTudo()">
+      <option value="">Mês Atual</option>
+      <option value="01">Janeiro</option>
+      <option value="02">Fevereiro</option>
+      <option value="03">Março</option>
+      <option value="04">Abril</option>
+      <option value="05">Maio</option>
+      <option value="06">Junho</option>
+      <option value="07">Julho</option>
+      <option value="08">Agosto</option>
+      <option value="09">Setembro</option>
+      <option value="10">Outubro</option>
+      <option value="11">Novembro</option>
+      <option value="12">Dezembro</option>
+
+      <option value="total_ano">Total do Ano</option>
+      <option value="total_anos">Total dos Anos</option>
+    </select>
+
+    <select id="filtroAno" onchange="atualizarTudo()"></select>
+  </div>
+
+  <!-- DASHBOARD -->
+  <h2>Dashboard</h2>
+  <div class="cards">
+    <div class="card">Receitas<br><b id="db_receita">0</b></div>
+    <div class="card">Despesas<br><b id="db_despesa">0</b></div>
+    <div class="card">Saldo<br><b id="db_saldo">0</b></div>
+    <div class="card">Guardado<br><b id="db_guardado">0</b></div>
+    <div class="card">Dívidas<br><b id="db_dividas">0</b></div>
+  </div>
+
+  <!-- TABELA -->
+  <h2>Movimentações</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Tipo</th>
+        <th>Valor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="lista"></tbody>
+  </table>
+</div>
+
+<!-- MARCA -->
+<div id="marca">
+  <img src="Favicon2.ico" alt="Minha Marca" />
+</div>
+
+<!-- SCRIPT -->
+<script src="Script.js?v=2"></script>
+
+</body>
+</html>
